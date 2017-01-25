@@ -29,8 +29,8 @@ end
 
 puts "Sonia's file contains: " + soniaf.to_s + soniaf.length.to_s + " Items" + "\n\n"
 puts "Priya's file contains: " + priyaf.to_s + priyaf.length.to_s + " Items" + "\n\n"
-
 puts "done"
+
 i = 0
 soniaf.each do 
 	puts "hi #{i+1}"
