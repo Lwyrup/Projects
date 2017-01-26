@@ -30,8 +30,8 @@ def toatlAndAverageCalc(category, person)
 	CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 		if row["Category"].include? category
 			if row["Account"].include? person
-				totIn.push(row["Inflow"].split("$").last().sub(/,/, "").to_f) if row["Inflow"].split("$").last().sub(/,/, "").to_f != 0.0
-				totOut.push(row["Outflow"].split("$").last().sub(/,/, "").to_f) if row["Outflow"].split("$").last().sub(/,/, "").to_f != 0.0
+				totIn.push(row["Inflow"].gsub(/[,\$]/, "").to_f) if row["Inflow"].gsub(/[,\$]/, "").to_f != 0.0
+				totOut.push(row["Outflow"].gsub(/[,\$]/, "").to_f) if row["Outflow"].gsub(/[,\$]/, "").to_f != 0.0
 			end
 		end
 	end
@@ -40,12 +40,8 @@ def toatlAndAverageCalc(category, person)
 	total = 0.0
 	average = 0.0
 
-	totIn.each do |i|
-		total += i 
-	end
-	totOut.each do |i|
-		total -= i 
-	end
+	totIn.each { |i| total += i }
+	totOut.each{ |i| total -= i }
 
 	if numOfTransactions == 0
 		average = "No occurance"
@@ -66,13 +62,15 @@ soniaarr = []
 names.each do |n|
 	categories.each do |c|
 		priyaarr.push(toatlAndAverageCalc(c,n)) if n == "Priya"
-		soniaarr.push(toatlAndAverageCalc(c,n)) if n == "Sonia"
+		soniaarr.push(toatlAndAverageCalc(c,n)) if n == "Sonia" 
 	end
 end
 
-puts soniaarr.to_s
+soniaarr.each do |i|
+	print i.join(" ") + "\n" unless i.include?("No occurance")
+end
 puts "\n"
-puts priyaarr.to_s
-
-
+priyaarr.each do |i|
+	print i.join(" ") + "\n" unless i.include?("No occurance")
+end
 
