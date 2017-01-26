@@ -66,11 +66,48 @@ names.each do |n|
 	end
 end
 
-soniaarr.each do |i|
-	print i.join(" ") + "\n" unless i.include?("No occurance")
+# soniaarr.each do |i|
+# 	print i.join(" ") + "\n" unless i.include?("No occurance")
+# end
+# puts "\n"
+# priyaarr.each do |i|
+# 	print i.join(" ") + "\n" unless i.include?("No occurance")
+# end
+
+# puts "\n"
+
+data = [soniaarr, priyaarr]
+
+
+
+names.each do |n|
+	puts "================================================================================"
+	puts "#{n}..."
+	puts "================================================================================"
+	puts "Category                    | Total spent | Average per transaction"
+	puts "----------------------------|-------------|-------------------------------------"
+	if n.to_s.include? "Sonia"
+		soniaarr.each do |sr|
+			print "#{sr[1].ljust(29)}" + "#{sr[2].to_s.ljust(14)}" + "#{sr[3].to_s.ljust(37)}" + "\n" unless sr.include? "No occurance"
+		end
+	end
+	if n.to_s.include? "Priya"
+		priyaarr.each do |pr|
+			print "#{pr[1].ljust(29)}" + "#{pr[2].to_s.ljust(14)}" + "#{pr[3].to_s.ljust(37)}" + "\n" unless pr.include? "No occurance"
+		end
+	end
+	puts "\n\n"
+
 end
-puts "\n"
-priyaarr.each do |i|
-	print i.join(" ") + "\n" unless i.include?("No occurance")
-end
+
+
+
+
+
+
+
+
+
+
+
 
