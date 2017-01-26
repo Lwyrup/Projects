@@ -31,16 +31,38 @@ puts "Sonia's file contains: " + soniaf.to_s + soniaf.length.to_s + " Items" + "
 puts "Priya's file contains: " + priyaf.to_s + priyaf.length.to_s + " Items" + "\n\n"
 puts "done"
 
+#ALL OF SONIA'S OUTFLOWS IN ONE ARRAY
+
 i = 0
+sOutflow = []
+
 soniaf.each do 
-	puts "hi #{i+1}"
-	i+=1
+	sOutflow.push(soniaf[i][3..5])
+	i += 1
 end
 
 
+puts sOutflow.to_s
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+# CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
+#     puts row[account[4]]
+# end
+
+
+# puts accounts[0]
 
 
 
