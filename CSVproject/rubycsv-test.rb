@@ -66,48 +66,43 @@ names.each do |n|
 	end
 end
 
-# soniaarr.each do |i|
-# 	print i.join(" ") + "\n" unless i.include?("No occurance")
-# end
-# puts "\n"
-# priyaarr.each do |i|
-# 	print i.join(" ") + "\n" unless i.include?("No occurance")
-# end
 
-# puts "\n"
+def totaler(arr)
+	bal = 0
+	i = 0
+	arr.each do |row|
+		bal += row[2] unless row[2] == "No occurance"
+		i += 1
+	end
+	return bal.round(2)
+end
 
-data = [soniaarr, priyaarr]
+soniaBal = totaler(soniaarr)
+priyaBal = totaler(priyaarr)
 
 
 
 names.each do |n|
+	if n.include? "Sonia"
+		b = soniaBal
+	else
+		b = priyaBal
+	end
 	puts "================================================================================"
-	puts "#{n}..."
+	puts "#{n}...            Balance: $#{b}"
 	puts "================================================================================"
 	puts "Category                    | Total spent | Average per transaction"
 	puts "----------------------------|-------------|-------------------------------------"
 	if n.to_s.include? "Sonia"
 		soniaarr.each do |sr|
-			print "#{sr[1].ljust(29)}" + "#{sr[2].to_s.ljust(14)}" + "#{sr[3].to_s.ljust(37)}" + "\n" unless sr.include? "No occurance"
+			print "#{sr[1].ljust(28)}|" + "$#{sr[2].to_s.ljust(13)}|" + "$#{sr[3].to_s.ljust(37)}" + "\n" unless sr.include? "No occurance"
 		end
 	end
 	if n.to_s.include? "Priya"
 		priyaarr.each do |pr|
-			print "#{pr[1].ljust(29)}" + "#{pr[2].to_s.ljust(14)}" + "#{pr[3].to_s.ljust(37)}" + "\n" unless pr.include? "No occurance"
+			print "#{pr[1].ljust(28)}|" + "$#{pr[2].to_s.ljust(13)}|" + "$#{pr[3].to_s.ljust(37)}" + "\n" unless pr.include? "No occurance"
 		end
 	end
 	puts "\n\n"
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
