@@ -1,0 +1,28 @@
+Valid inputs
+
+{"   "}
+	prints both accounts in default ascii
+
+{Sonia}
+	prints only that account in default ascii
+
+{Priya}
+	prints only that account in default ascii
+
+{Html}
+	prints html for all account
+
+{Sonia, Html}
+	prints html of only Sonia's
+
+{Priya, Html}
+	prints html of only Priya's
+
+{cvs}
+	prints both in csv
+
+{Sonia, csv}
+	prints only Sonia's in csv
+
+{Priya, csv}
+	prints onlu Sonia's in csv
