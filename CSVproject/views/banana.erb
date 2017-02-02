@@ -5,9 +5,40 @@
 	}
 </style>
 
+<p>Enter an account</p>
+
+<form>
+	<input type = "text" name = "whoWeWant">
+	<input type =  "submit">
+</form><br>
+
+
+<p>Add to the file.</p>
+
+<form action="/fullreport" method="post">
+
+	<input type = "text" name = "Account" placeholder = "Account Name">
+
+	<input type = "text" name = "Date" placeholder = "Date">
+
+	<input type = "text" name = "Payee" placeholder = "Payee">
+
+	<input type = "text" name = "Category" placeholder = "Category">
+
+	<input type = "text" name = "Outflow" placeholder = "Outflow">
+
+	<input type = "text" name = "Inflow" placeholder = "Inflow">
+
+	<input type = "submit">
+
+</form>
+
+
+
 <a href="/fullreport">Both</a>
-<a href="/Sonia">Sonia only</a>
-<a href="/Priya">Priya only</a>
+<a href="/fullreport?whoWeWant=Priya">Priya only</a>
+<a href="/fullreport?whoWeWant=Sonia">Sonia only</a>
+
 <br>
 
 <% @passHash.each do |name, balance| %>

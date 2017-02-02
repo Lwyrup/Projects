@@ -3,6 +3,7 @@ class BuildHash #Class that builds, maintains, and modifies the hash containing 
 
 	def initHash #Set up empty hash
 		@accountsHash = {}
+		@wantedHash = {}
 	end
 
 	def build(row) #Calls on functions to build hash row by row
@@ -65,6 +66,7 @@ class BuildHash #Class that builds, maintains, and modifies the hash containing 
 		if getKeys.include?(mfd.to_s)
 			@accountsHash.delete_if { |key, value| key != mfd.to_s }
 		end
+		return @accountsHash
 	end
 
 	def printOut #Returns the hash for use

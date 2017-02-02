@@ -14,15 +14,43 @@ def buildItAndTheyWillCome
 end
 
 
+get("/"){
+	erb :home
+}
+
+
+
+
+post("/fullreport"){
+	#Add to csv sheet????
+	redirect("/fullreport")
+}
+
+
+
+
+
+
 get("/fullreport"){
-	@passHash = buildItAndTheyWillCome.printOut
+	@name = params["whoWeWant"]
+
+	@passHash = buildItAndTheyWillCome.delete(@name)
+
+	
 	erb :banana
 }
 
-get("/Sonia"){
-	@passHash = buildItAndTheyWillCome.delete("Sonia")
-	erb :banana
-}
+# post("/fullreport"){
+# 	@name = params["whoWeWant"]
+# 	@passHash = buildItAndTheyWillCome.printOut.delete(@name)
+# 	erb :banana
+# }
+
+# get("/Sonia"){
+# 	@passHash = buildItAndTheyWillCome.delete("Sonia")
+	
+# 	erb :banana
+# }
 
 get("/Priya"){
 	buildItAndTheyWillCome
