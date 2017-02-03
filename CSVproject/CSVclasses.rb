@@ -195,3 +195,20 @@ class DisplayReport #Class that displays and formats
 		end
 	end
 end
+
+def buildItAndTheyWillCome
+	accountsHash = BuildHash.new
+	accountsHash.initHash
+
+	CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
+		accountsHash.build(row)
+	end
+	return accountsHash
+end
+
+def addRow(row)
+	File.open("accounts.csv", "a") do |f|
+		f.puts row + "\n"
+		f.close
+	end
+end

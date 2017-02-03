@@ -3,15 +3,6 @@ require 'CSV'
 require 'sinatra'
 require 'pry'
 
-def buildItAndTheyWillCome
-	accountsHash = BuildHash.new
-	accountsHash.initHash
-
-	CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
-		accountsHash.build(row)
-	end
-	return accountsHash
-end
 
 
 get("/"){
@@ -22,7 +13,8 @@ get("/"){
 
 
 post("/fullreport"){
-	#Add to csv sheet????
+	@newstuff = params.values.join(",")
+	addRow(@newstuff)
 	redirect("/fullreport")
 }
 
@@ -40,23 +32,19 @@ get("/fullreport"){
 	erb :banana
 }
 
-# post("/fullreport"){
-# 	@name = params["whoWeWant"]
-# 	@passHash = buildItAndTheyWillCome.printOut.delete(@name)
-# 	erb :banana
-# }
 
-# get("/Sonia"){
-# 	@passHash = buildItAndTheyWillCome.delete("Sonia")
-	
-# 	erb :banana
-# }
 
-get("/Priya"){
-	buildItAndTheyWillCome
-	@passHash = buildItAndTheyWillCome.delete("Priya")
-	erb :banana
-}
+
+get("/login")
+
+
+
+
+
+
+
+
+
 
 
 

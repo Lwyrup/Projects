@@ -1,0 +1,23 @@
+<h1>Rock, paper, scissors</h1>
+
+<form action = "/home" method = "post">
+	<input list="weapon"  name="weapon_one">	
+	<datalist id = "weapon">
+		<option value = "rock">
+		<option value = "paper">
+		<option value = "scissors">
+	</datalist>
+
+	<input list="weapon"  name="weapon_two">	
+	<datalist id = "weapon">
+		<option value = "rock">
+		<option value = "paper">
+		<option value = "scissors">
+	</datalist>
+
+	<input type = "submit">
+</form>
+
+<h2><%= @var %></h2>
+<p><%= @p1_weapon %><%= @p2_weapon %><%= $scoreOne %></p>
+<h2><%= @winner %></h2>
