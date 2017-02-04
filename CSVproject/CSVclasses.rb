@@ -1,4 +1,3 @@
-
 class BuildHash #Class that builds, maintains, and modifies the hash containing the data
 
 	def initHash #Set up empty hash
@@ -45,7 +44,7 @@ class BuildHash #Class that builds, maintains, and modifies the hash containing 
 	end
 
 	def inoutFormat(cost) #Formats numbers given as currency ammounts
-		return cost.gsub(/[,\$]/, '').to_f.round(2)
+		return cost.gsub(/[$]/, '').gsub(/[,]/, '').to_f.round(2)
 	end
 
 	def averageItOut #Finds the average money spent per transaction in a category 
@@ -196,6 +195,8 @@ class DisplayReport #Class that displays and formats
 	end
 end
 
+#--FUNCTIONS--
+
 def buildItAndTheyWillCome
 	accountsHash = BuildHash.new
 	accountsHash.initHash
@@ -206,9 +207,24 @@ def buildItAndTheyWillCome
 	return accountsHash
 end
 
+def stripNewRow(row)
+	cleanRowArray = []
+	for i in 0..5
+		cleanCell = row[i].gsub(/[,]/, '').gsub(/[$]/, '')
+		cleanPush = cleanRowArray.push(cleanCell)
+	end
+	return cleanPush
+end
+
 def addRow(row)
+	row = row.join(",")
 	File.open("accounts.csv", "a") do |f|
 		f.puts row + "\n"
 		f.close
 	end
 end
+
+
+
+
+
