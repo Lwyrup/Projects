@@ -1,0 +1,76 @@
+<%require 'pry'
+
+if $loggedIn == false || $loggedIn == nil
+	redirect "/login"
+
+else %>
+
+<style>
+
+td{
+	padding-left: 10;
+	padding-right: 10;
+}
+div{
+	float:right;
+}
+h1{
+	text-align: center;
+}
+table{
+	border-color: blue;
+	}
+#table{
+	color:red;
+	float:left;
+	padding: 20;
+}
+</style>
+
+
+
+
+
+<h2>Please add your new line to the report:</h2>
+<div>You are currently logged in. Click <a href="/logout">here</a> to log out.</div>
+
+<form action="/admin" method="post">
+
+	<input type = "text" name = "Account" placeholder = "Account Name">
+
+	<input type = "text" name = "Date" placeholder = "Date">
+
+	<input type = "text" name = "Payee" placeholder = "Payee">
+
+	<input type = "text" name = "Category" placeholder = "Category">
+
+	<input type = "text" name = "Outflow" placeholder = "Outflow">
+
+	<input type = "text" name = "Inflow" placeholder = "Inflow">
+
+	<input type = "submit">
+
+</form>
+
+<% @passHash.each do |name, balance| %>
+	<div id = "table">
+	<table border = "1">
+		<tr>Account:<%= name %> &emsp; Balance: $<%= balance[:total].round(2) %></tr>
+		<tr>
+			<td>Category</td>
+			<td>Amount</td>
+			<td>Average per transaction</td>
+		</tr>
+	<% balance[:category].each do |category, t| %>
+		<tr>
+			<td><%= category %></td>	
+			<td><%= t[:tally].round(2) %></td>
+			<td><%= t[:avg_transaction].round(2) %></td>
+		</tr>
+	<% end %>
+	</table>
+	</div>
+	<br>
+<% end %>
+
+<% end %>
