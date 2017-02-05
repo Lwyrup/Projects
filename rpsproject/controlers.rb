@@ -1,4 +1,4 @@
-require_relative 'rubyrps.rb'
+require_relative 'webrps.rb'
 require 'sinatra'
 
 $scoreOne = 0
@@ -6,10 +6,6 @@ $scoreOne = 0
 get("/home"){
 	@message = params["message"]
 	$scoreOne
-	# @scoreOne = 0
-	#enter in validator 
-	
-
 	erb :home
 }
 
@@ -18,8 +14,12 @@ post("/home"){
 	@var = params
 	@p1_weapon = params["weapon_one"]
 	@p2_weapon = params["weapon_two"]
+
+	validator(@p1_weapon, @p2_weapon)
 	$scoreOne += 1
 	#compare and return winner
+
+
 	erb :home
 }
 
@@ -32,11 +32,6 @@ post("/home"){
 
 
 
-
-get("/turn"){
-	return "Help"
-	erb :home
-}
 
 
 
