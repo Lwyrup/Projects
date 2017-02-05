@@ -29,10 +29,10 @@ get("/login"){
 }
 
 post("/login"){
-	@name = params["userID"]
-	@password = params["password"]
+	uname = params["userID"]
+	password = params["password"]
 	$loggedIn = false
-	if @name == "bossman" && @password == "fish"
+	if uname == "bossman" && password == "fish"
 		$loggedIn = true
 		redirect "/admin"
 	end
@@ -51,9 +51,9 @@ get("/admin"){
 }
 
 post("/admin"){
-	@newStuff = params.values
-	@cleanNewStuff = stripNewRow(@newStuff)
-	addRow(@cleanNewStuff)
+	newStuff = params.values
+	cleanNewStuff = stripNewRow(newStuff)
+	addRow(cleanNewStuff)
 	
 	redirect("/admin")
 }
