@@ -10,13 +10,6 @@ get("/"){
 }
 
 
-
-#THIS IS A CONTROLLER
-# post("/fullreport"){
-# 	redirect("/fullreport")
-# }
-
-
 #THIS IS A CONTROLLER
 get("/fullreport"){
 	@name = params["whoWeWant"]
