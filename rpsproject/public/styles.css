@@ -1,0 +1,82 @@
+body{
+	background-color: orange;
+	font-size:24px;
+	font-family:cursive;
+}
+#home-box{
+	text-align: center;
+	background-color: beige;
+	width:500px;
+	padding:60px;
+	margin:auto;
+	margin-top: 70px;
+	border:double 6px;
+	border-bottom-right-radius: 300px;
+	border-bottom-left-radius: 300px;
+
+}
+table{
+	margin:auto;
+}
+th{
+	font-size:30px;
+	text-decoration: underline;
+}
+td{
+	letter-spacing: 6px;
+	padding: 2px;
+
+}
+h1{
+	text-decoration: overline;
+}
+select{
+	width:180px;
+	border:dotted;
+	background-color: transparent;
+}
+select:hover{
+	background-color: white;
+}
+.weapon{
+	color:darkblue;
+}
+.weapon2{
+	color:darkred;
+}
+input{
+	border:double;
+	background-color: lightgray;
+	border-radius: 10px
+}
+input:hover{
+	background-color: white;
+}
+input:active{
+	background-color: gray
+}
+a{
+	text-decoration:none;
+	background-color: lightgray;
+	padding:10px;
+	border-radius: 20px;
+	border:double;
+	color:black;
+}
+a:hover{
+	background-color: white;
+}
+a:active{
+	background-color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
