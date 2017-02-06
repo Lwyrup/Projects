@@ -1,24 +1,47 @@
-<h1>Rock, paper, scissors</h1>
+<head>
+	<title>Rock, Paper, Scissors</title>
+	<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div id="home-box">
+<h1>Rock, Paper, Scissors</h1>
+
+<p>Knights select thine weapons!</p>
 
 <form action = "/home" method = "post">
-	<input list="weapon"  name="weapon_one">	
-	<datalist id = "weapon">
-		<option value = "rock">
-		<option value = "paper">
-		<option value = "scissors">
-	</datalist>
+		
+	<select class = "weapon" name="weapon_one">
+		<option value = "---">---</option>
+		<option value = "rock">Rock</option>
+		<option value = "paper">Paper</option>
+		<option value = "scissors">Scissors</option>
+	</select>
+	
+	<select class = "weapon2" name="weapon_two">
+		<option value = "---">---</option>
+		<option value = "rock">Rock</option>
+		<option value = "paper">Paper</option>
+		<option value = "scissors">Scissors</option>
+	</select>
 
-	<input list="weapon"  name="weapon_two">	
-	<datalist id = "weapon">
-		<option value = "rock">
-		<option value = "paper">
-		<option value = "scissors">
-	</datalist>
-
-	<input type = "submit">
+	<input type = "submit" value="Duel!">
 </form>
 
-<h2><%= @var %></h2>
-<p><%= @p1_weapon %><%= @p2_weapon %><%= $scoreOne %></p>
-<h2><%= @winner %></h2>
+<table>
+	<th>Scores</th>
+	<tr class="weapon">
+		<td> Knight_1: </td>
+		<td><%= $scoreOne %></td>
+	</tr>
+	<tr class="weapon2">
+		<td> Knight_2: </td>
+		<td><%= $scoreTwo %></td>
+	</tr>
+</table>
+
+
 <h3><%= @message %></h3>
+</div>
+</body>
