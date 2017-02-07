@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
 
 td{
 	padding-left: 10;
@@ -18,36 +18,78 @@ table{
 	float:left;
 	padding: 20;
 }
-</style>
+</style> -->
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
 
-<h1>Report</h1>
 
-<div>
-	<p>Search</p>
-	<form>
-		<input type = "text" name = "whoWeWant">
-		<input type =  "submit">
-	</form><br>
+
+<div class="header">
+<h1 class="header-round">Reports</h1>
+	<div class="log-box header-round">
+		<%if !$loggedIn %>
+			<a href="/login">Click to Login</a>
+		<% else %>
+			<p>You are currently logged in. <a href="/logout">Log out</a></p>
+		<% end %>
+	</div>
+
+	<div class="search-box header-round">
+		<p>Search</p>
+		<form>
+			<input type = "text" name = "whoWeWant" placeholder = "Account Name">
+			<input type =  "submit">
+		</form><br>
+	</div>
+
+
+
+
+
+
+<% if $loggedIn %>
+<div class="new-entry">
+
+	<p>Enter new report entry:</p>
+	
+
+	<form action="/fullreport" method="post">
+
+		<input type = "text" name = "Account" placeholder = "Account Name">
+
+		<input type = "text" name = "Date" placeholder = "Date">
+
+		<input type = "text" name = "Payee" placeholder = "Payee">
+
+		<input type = "text" name = "Category" placeholder = "Category">
+
+		<input type = "text" name = "Outflow" placeholder = "Outflow">
+
+		<input type = "text" name = "Inflow" placeholder = "Inflow">
+
+		<input type = "submit">
+
+	</form>
+
+</div>
+<% end %>
+
+
+
 </div>
 
 
-
-
-<a href="/fullreport">Both</a>
-<a href="/fullreport?whoWeWant=Priya">Priya only</a>
-<a href="/fullreport?whoWeWant=Sonia">Sonia only</a>
-
-<br>
-
+<div class="data">
 <% @passHash.each do |name, balance| %>
-	<div id = "table">
-	<table border = "1">
-		<tr>Account:<%= name %> &emsp; Balance: $<%= balance[:total].round(2) %></tr>
-		<tr>
-			<td>Category</td>
-			<td>Amount</td>
-			<td>Average per transaction</td>
-		</tr>
+	<div class="data-table">
+	<table>
+		<caption>Account:<%= name %> &emsp; Balance: $<%= balance[:total].round(2) %></caption>
+		<thead>
+			<th>Category</th>
+			<th>Amount</th>
+			<th>Average per transaction</th>
+		</thead>
 	<% balance[:category].each do |category, t| %>
 		<tr>
 			<td><%= category %></td>	
@@ -59,7 +101,7 @@ table{
 	</div>
 	<br>
 <% end %>
-
+</div>
 
 
 
