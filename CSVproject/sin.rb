@@ -4,50 +4,47 @@ require 'sinatra'
 require 'pry'
 
 
-#THIS IS A CONTROLLER
 get("/"){
-	erb :home
+	redirect("/fullreport")
 }
 
 
-#THIS IS A CONTROLLER
 get("/fullreport"){
 	@name = params["whoWeWant"]
 	@passHash = buildItAndTheyWillCome.delete(@name)
 	erb :banana
 }
 
+post("/fullreport"){
+	newStuff = params.values
+	cleanNewStuff = stripNewRow(newStuff)
+	addRow(cleanNewStuff)
+	
+	redirect("/fullreport")
+}
+
 get("/login"){
+	if $loggedIn == true
+		redirect("/fullreport")
+	end
 	erb :login
 }
 
 post("/login"){
 	uname = params["userID"]
 	password = params["password"]
-	$loggedIn = false
 	if uname == "bossman" && password == "fish"
 		$loggedIn = true
-		redirect "/admin"
+		redirect("/fullreport")
 	end
+	redirect("/login")
 }
 
 get("/logout"){
-	erb :logout
-}
-post("/logout"){
 	$loggedIn = false
+	redirect("/fullreport")
 }
 
-get("/admin"){
-	@passHash = buildItAndTheyWillCome.delete(@name)
-	erb :admin
-}
 
-post("/admin"){
-	newStuff = params.values
-	cleanNewStuff = stripNewRow(newStuff)
-	addRow(cleanNewStuff)
-	
-	redirect("/admin")
-}
+
 
