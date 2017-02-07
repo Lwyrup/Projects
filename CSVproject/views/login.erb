@@ -1,26 +1,25 @@
-<% if $loggedIn == true
-	redirect "/admin"
-end %>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
 
-<form action="/login" method="post">
-	<label>Please enter your user ID:</label>
-	<p><input type="text" name="userID"></p>
 
-	<label>Please enter your password:</label>
-	<p><input type="password" name="password"></p>
 
-	<input type="submit">
-</form>
+	
+<div class="login-box">
+	<form action="/login" method="post">
+		<label>Please enter your user ID:</label>
+		<p><input type="text" name="userID" placeholder="UserID"></p>
 
-<%
-if @name == nil%>
-	<p> </p>
-<%
-elsif @name != "bossman" || @password != "fish"%>
-	<p> Invalid ID or password. </p>
-<%
-elsif @name == "bossman" && @password == "fish"
-	@loggedIn = true
-	redirect "/admin"
-end
-%>
+		<label>Please enter your password:</label>
+		<p><input type="password" name="password" placeholder="password"></p>
+
+		<input type="submit">
+	</form>
+
+	<a href="/fullreport">Cancel</a>
+</div>
+
+<div class="login-tab">
+	<h2>Login</h2>
+</div>
+
