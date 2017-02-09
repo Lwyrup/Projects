@@ -21,7 +21,7 @@ def decider(weapon1, weapon2)
 	if weapon1 != weapon2
 		whoWins(weapon1, weapon2)
 	else 
-		return @message = "Tis' a tie! Sire!"
+		return "Tis' a tie! Sire!"
 	end
 end
 
@@ -29,18 +29,19 @@ def whoWins(weapon1, weapon2)
 	if (weapon1 == "rock" && weapon2 == "scissors" ||
 		weapon1 == "paper" && weapon2 == "rock" ||
 		weapon1 == "scissors" && weapon2 == "paper")
-		return @message = "Knight_1 wins", $scoreOne += 1
+		$scoreOne += 1
+		return "Knight_1 wins"
 	else
-		return @message = "Knight_2 wins", $scoreTwo += 1
+		$scoreTwo += 1
+		return "Knight_2 wins"
 	end
 end
 
-
 def keepPlaying
 	if $scoreOne == 3
-		redirect("/game?win=Knight_1")
+		return 10
 	elsif $scoreTwo == 3
-		redirect("/game?win=Knight_2")
+		return 20
 	end
 end
 
