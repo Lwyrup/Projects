@@ -38,15 +38,15 @@ def decider(weapon1, weapon2)
 	if weapon1 != weapon2
 		whoWins(weapon1, weapon2)
 	else 
-		puts "draw"
-		showScore
-		ask
+		draw
 	end
 end
 
-
-# def draw
-#
+def draw
+	puts "draw"
+	showScore
+	ask
+end
 
 def whoWins(weapon1, weapon2)
 	if (weapon1 == "rock" && weapon2 == "scissors" ||
@@ -87,11 +87,10 @@ def keepPlaying
 	end
 end
 
-def finalVictor(s1, s2) #switch to if
-	case (s1 > s2)
-	when true
+def finalVictor(s1, s2)
+	if (s1 > s2)
 		winMessage("Player one", s1)
-	when false
+	else
 		winMessage("Player two", s2)
 	end
 end
