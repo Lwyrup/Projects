@@ -112,8 +112,12 @@ window.addEventListener("load", function () {
 
 
 
+//SHARE FUNCTIONALITY
+	//Get share buttons 
 
+	//Onclick do the 'share' function
 
+//
 
 
 
@@ -188,10 +192,10 @@ function likepost(){
 
 
 //Displays modal window and person/friends
-function viewprofile (){
+function viewprofile (e){
 	//Gets the modal, name, and generates friends
 	modal = document.getElementsByClassName("full__modal")[0];
-	name = this.textContent;
+	name = e.target.textContent;
 	friends = Math.ceil(Math.random()*5000);
 	//Displays the modal with the name and # of friends
 	modal.style.display="block";
@@ -359,8 +363,15 @@ function addEventsToNew(pos){
 
 
 
+//Share modal stuff here function
+function share(){
+	//get and view modal
+	modal = document.getElementsByClassName("full__modal")[0];
+	modal.style.display="block"
+	//get e.target post content and name
 
-
+	//set those as
+};
 
 
 

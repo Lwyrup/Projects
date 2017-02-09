@@ -61,6 +61,7 @@ class BuildHash #Class that builds, maintains, and modifies the hash containing 
 		return @accountsHash.keys
 	end
 
+	#rename less confusingly
 	def delete(mfd)	#Deletes accounts that aren't the filter account if a filter is given
 		if getKeys.include?(mfd.to_s)
 			@accountsHash.delete_if { |key, value| key != mfd.to_s }
@@ -118,10 +119,12 @@ class Arguments #Takes in agruments, checks arguments, and sets filters
 		end
 	end
 
+	#revise name
 	def filterOutName #Sends name filter for display use
 		return @name
 	end
 
+	#revise name
 	def filterOutFormat #Sends format filter for display use
 		return @format
 	end

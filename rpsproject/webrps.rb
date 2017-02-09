@@ -13,7 +13,7 @@ def validator(p1_weapon, p2_weapon)
 	if areValid(p1_weapon) and areValid(p2_weapon)
 		decider(p1_weapon, p2_weapon)
 	else
-		return @message = "Sire! Thy choice is illegal!"
+		return "Sire! Thy choice is illegal!"
 	end
 end
 

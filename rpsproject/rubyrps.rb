@@ -1,14 +1,14 @@
 #--FUNCTIONS HERE--
 def ask
-	response = []
 	players = ["one", "two"]
-	response = question(players, response)
+	response = question(players)
 	p1_weapon = response[0]
 	p2_weapon = response[1]
 	validator(p1_weapon, p2_weapon)
 end
 
-def question(players, response)
+def question(players)
+	response = []
 	players.each do |player|
 		puts"Player #{player} choose your weapon:"
 		response.push(gets.chomp)
@@ -44,6 +44,10 @@ def decider(weapon1, weapon2)
 	end
 end
 
+
+# def draw
+#
+
 def whoWins(weapon1, weapon2)
 	if (weapon1 == "rock" && weapon2 == "scissors" ||
 		weapon1 == "paper" && weapon2 == "rock" ||
@@ -62,10 +66,9 @@ end
 
 def upScore(player)
 	if (player == "p1")
-		return $player1Score += 1;
-	end
-	if (player == "p2")
-		return $player2Score += 1;
+		$player1Score += 1;
+	elsif (player == "p2")
+		$player2Score += 1;
 	end
 end
 
@@ -77,29 +80,26 @@ def showScore
 end
 
 def keepPlaying
-	if ($player1Score + $player2Score == 5 || $player1Score == 3 || $player2Score == 3)
+	if ($player1Score == 3 || $player2Score == 3)
 		finalVictor($player1Score, $player2Score)
 	else
 		ask()
 	end
 end
 
-def finalVictor(s1, s2)
+def finalVictor(s1, s2) #switch to if
 	case (s1 > s2)
 	when true
 		winMessage("Player one", s1)
-		return
 	when false
 		winMessage("Player two", s2)
-		return
 	end
 end
 
 def winMessage(player, score)
-	victor = player
 	puts(
 		"><><><><><><><><><><><><><><><\n"+
-		"#{victor} wins with #{score} points!\n" +
+		"#{player} wins with #{score} points!\n" +
 		"|_-_-_-_-_-GAMEOVER-_-_-_-_-_|\n\n\n\n")
 end
 
@@ -107,5 +107,5 @@ end
 $player1Score = 0
 $player2Score = 0
 
-# ask
+ask
 
