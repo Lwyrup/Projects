@@ -30,9 +30,25 @@ caption{
 	border-top:1px solid black;
 	border-radius: 34px;
 }
+tr:hover{
+	background-color: rgb(200, 230, 200);
+}
+td:hover{
+	background-color: rgb(200, 255, 200);
+}
 td{
 	border:1px solid black;
 }
+input{
+	border:1px solid black;
+}
+input:hover{
+	background-color: white;
+}
+.form:hover{
+	background-color: rgb(200, 230, 200);
+}
+
 .header{
 	width: 100%;
 	position: fixed;
