@@ -1,19 +1,4 @@
 
-//¬¬(met)¬¬¬¬¬¬¬¬¬Goals¬¬¬¬¬¬¬¬¬¬¬¬¬
-//    √  -Like buttons
-//    √  -Comment button cursor redirect
-//    √  -Reply button exspansion
-//    √  -!Comment submission
-//	  √		--get the comment content
-//	  √		--[raise an alert() error if nothing has been typed into the textarea
-//	  √		--!clone new comment node!
-//	  √		--dictate name and content
-// 	  √		--[update the number of comments/replies
-// 	  √		--add the comment to the correct location in the comments area
-//    √  -Profile modal
-//    √  -Share modal
-//    √  -Modal control
-
 //EXECUTION HERE AFTER PAGE LOADS
 window.addEventListener("load", function () {
 
@@ -134,6 +119,8 @@ function likeit(){
 };
 
 //Checks if there is NaN likes if not acts normal
+//
+//locale is the node containing '_ likes' and if NaN it is the first like
 
 function likeValid(locale){
 	if (Object.is(count,NaN)){
@@ -148,6 +135,8 @@ function likeValid(locale){
 //Gets the string of likes in html and sets it equal to (it + 1)
 //If comment is unliked and is clicked turns to like
 //Gets the string of likes in html and sets it equal to (it - 1)
+//
+//Current is the same as locale from above but here it has been passed and is not NaN
 
 function decideLike(current){
 	if (current.innerHTML=="Like"){
@@ -182,6 +171,8 @@ function likepost(){
 //Displays modal window and person/friends
 //Gets the modal, name, and generates friends
 //Displays the modal with the name and # of friends
+//
+//e is for event
 
 function viewprofile (e){
 	modal = document.getElementsByClassName("full__modal")[0];
@@ -232,17 +223,21 @@ function prevent(){event.preventDefault()};
 //Adds comment content, sends alert if empty and resets form
 //Gets the users comment
 //clears form field after entry
+//
+//this is the submit button
 
 function submitComment(){
-	current = this
 	comment = this.parentNode.children[0].value
-	isCommentValid(current, comment);
+	isCommentValid(this, comment);
 	this.parentNode.reset(); 
 };
 
 //Checks if the comment is empty or not
 //If so alerts user
 //else begins the process of adding the comment to page
+//
+//Area is the submit button with the event trigger 
+//Comment is the actual text from user as a string
 
 function isCommentValid(area, comment){
 	if (comment == ""){
@@ -255,10 +250,19 @@ function isCommentValid(area, comment){
 };
 
 //Adds a new comment above form field
+//
 //Gets all under the classes and selects the last (aka comment template)
 //Clones the template with the content already writen
 //Goes up to the replies box of that thread
+//Calls to add functionality to the new comment
 //Updates the # of replies
+//
+//---Variables---
+//Current is the submit button with trigger
+//Comments are all of the comments in page
+//Comment_format is the last comment in page that is always hidden
+//replies_box is the replies area associated with the submit button
+//new_comment_pos is the last comment before the text field
 
 function addComment(current){
 	comments = document.getElementsByClassName("comment media");
@@ -272,6 +276,10 @@ function addComment(current){
 //Adds the cloned template at the bottom of comments but before the form field
 //Makes it visable
 //add events to new comments
+//
+//where is the replies area for that thread
+//what is the actual string of what user typed
+//toWhere is the second to last item in the replies area (aka new_comment_pos)
 
 function insertShowAndIntegrate(where, what, toWhere){
 	where.insertBefore(what, where.childNodes[toWhere]);
