@@ -1,0 +1,81 @@
+body{
+	background-color: maroon;
+	color:white;
+	margin:0px;
+	font-family: "monofonto", monospace;
+	font-size: 24px;
+}
+table{
+	display: inline-block;
+	margin: auto 10%;
+}
+#message{
+	float:right;
+	font-weight: bolder;
+	color:black;
+	margin-right:10%;
+}
+.head{
+	z-index: 2;
+	background-color: black;
+	text-align: center;
+	width:100%;
+	padding:1px;
+	letter-spacing: 12px;
+}
+.start{
+	margin:5% auto;
+	text-align: center;
+	padding:110px;
+	width:40%;
+	background-color: gray;
+	font-size: 30px;
+	letter-spacing: 8px;
+	border-radius: 100%;
+	border-top: 60px double black;
+	border-bottom: 30px double black;
+	border-right:30px solid black;
+	border-left:30px solid black;
+}
+.start:hover{
+	background-color: white;
+}
+.begin{
+	padding:110px 70px;
+	border-radius: 100%;
+	background-color: black;
+	color:white;
+}
+.begin:hover{
+	background-color: maroon;
+	color:red;
+}
+.modal{
+	position: fixed;
+	z-index: 1;
+	top: 125;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color:black;
+}
+.scoreboard{
+	background-color: white;
+	color:black;
+	box-shadow: 0px 4px rebeccapurple;
+}
+.answer{
+	display: inline;
+}
+.quizArea{
+	border-left: 50px groove maroon;
+	border-radius: 90px;
+	border-top-left-radius: 23px;
+	border-bottom-left-radius: 23px;
+	width:70%;
+	padding:70px;
+	margin:5% auto;
+	text-align: center;
+	padding:2px;
+	background-color: purple;
+}
