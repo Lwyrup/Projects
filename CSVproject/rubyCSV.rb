@@ -15,8 +15,7 @@ CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 end
 
 filter.getValidFilters(accountsHash.getKeys)
-accountsHash.delete(filter.filterOutName)
+accountsHash.deleteAllBut(filter.filterOutName)
 
 showme.get(filter.filterOutFormat)
-#revise printOut name
-showme.printDisplay(accountsHash.printOut)
+showme.printDisplay(accountsHash.accounts)

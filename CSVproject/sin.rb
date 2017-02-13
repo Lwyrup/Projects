@@ -11,7 +11,7 @@ get("/"){
 
 get("/fullreport"){
 	@name = params["whoWeWant"]
-	@passHash = buildItAndTheyWillCome.delete(@name)
+	@passHash = buildItAndTheyWillCome.deleteAllBut(@name)
 	erb :banana
 }
 

@@ -61,15 +61,14 @@ class BuildHash #Class that builds, maintains, and modifies the hash containing 
 		return @accountsHash.keys
 	end
 
-	#rename less confusingly
-	def delete(mfd)	#Deletes accounts that aren't the filter account if a filter is given
-		if getKeys.include?(mfd.to_s)
-			@accountsHash.delete_if { |key, value| key != mfd.to_s }
+	def deleteAllBut(account)	#Deletes accounts that aren't the filter account if a filter is given
+		if getKeys.include?(account.to_s)
+			@accountsHash.delete_if { |key, value| key != account.to_s }
 		end
 		return @accountsHash
 	end
 
-	def printOut #Returns the hash for use
+	def accounts #Returns the hash for use
 		return @accountsHash
 	end
 end
