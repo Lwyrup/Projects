@@ -39,8 +39,14 @@ window.addEventListener("load", function(){
 		var data = buildFile();
 		var http = new XMLHttpRequest();
 		http.open('POST', "write.php", true);
-		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		//I dont understand this below, code breaks when it's removed
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
 		http.send("thing=" + data);
+
+		http.addEventListener("load", function(e){
+			// console.log(JSON.parse(e.target.responseText))
+			alert("Response from server received!\n" + e.target.response)
+		})
 	};
 
 	function buildFile(){
