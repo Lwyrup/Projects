@@ -1,7 +1,6 @@
 body{
 	background-color: red;
 	color:white;
-	text-shadow: 2px 2px black;
 }
 img{
 	height:600px;
@@ -9,15 +8,28 @@ img{
 }
 h1{
 	text-align: center;
+	text-shadow: 2px 2px black;
+}
+#gameData{
+	background-color: white;
+	width:98%;
+	margin:auto;
+	border:12px groove rgb(220,220,220);
+	height: 30px;
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+}
+#rspnse{
+	margin: initial;
+	text-decoration: underline;
 }
 .highlighter{
 	display: none;
 	border:4px solid red;
 	box-shadow: 1px 2px black;
-	border-radius: 100%;
-	position:fixed;
-	bottom:249px;
-	left:500px;
-	width:45px;
-	height:45px;
+	/*border-radius: 100%;*/
+	position:absolute;
+	width:46px;
+	height:46px;
 }
