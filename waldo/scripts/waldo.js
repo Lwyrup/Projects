@@ -16,7 +16,7 @@ window.addEventListener("load", function(){
 		y = e.pageY;
 		
 		requestForWaldo = new XMLHttpRequest();
-		requestForWaldo.open('POST', 'tony_stark.php', true);
+		requestForWaldo.open('POST', 'scripts/tony_stark.php', true);
 		requestForWaldo.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
 		requestForWaldo.send("xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop));
 		requestForWaldo.addEventListener("load", showResponse);
@@ -40,34 +40,54 @@ window.addEventListener("load", function(){
 	function highlight(e){
 		highlighter = document.getElementsByClassName("highlighter")[0]
 		highlighter.style.display = "block"
-	
-		highlighter.style.top = e.pageY +"px"
-		highlighter.style.left = e.pageX  + "px"
+		highlighter.style.top = e.pageY - 26 +"px"
+		highlighter.style.left = e.pageX - 26 + "px"
+		setTimeout(unhighlight,750);
 	};
 
-
+	function unhighlight(){
+		highlighter.style.display = "none"
+	};
 
 	function startGame(){
 		document.getElementById("startScreen").style.display = "none";
 		//Start timer here
-		timeStart = new Date().getTime();
-		document.getElementById("timer").innerText = timeStart;
+		startTimer();
 	}
 
 	function endGame(){
+		timeToFind = document.getElementById("timer").textContent;
+		document.getElementById("yourTime").textContent = timeToFind;
+		//getTopPlayers(); ------------------------------------------
 		document.getElementById("endModal").style.display = "block";
 		//End timer here
-		timeFinish = new Date().getTime();
+		stopTimer();
+	};
+
+	function getTopPlayers(){
+		//Send request to server for top player scores
+		//Data sent back as json?? 
+		//scores = [ 
+		// {player => "Austin", score => "1.020"},
+		// {player => "Nate", score => "1.320"}
+		//  ];
+		//Use response to generate <tbody> in html
 	};
 
 
 
+	function startTimer(){
+		myTimer = setInterval(upTimer, 10);
+	};
 
+	function stopTimer(){
+		clearInterval(myTimer);
+	};
 
-
-
-
-
+	function upTimer(){
+		newTime = parseFloat(document.getElementById("timer").textContent) + 0.01;
+		document.getElementById("timer").textContent = newTime.toFixed(3);
+	};
 
 
 
