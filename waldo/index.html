@@ -3,16 +3,28 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Wheres waldo?</title>
+	<title>Wheres Waldo?</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<script type="text/javascript" src="scripts/waldo.js"></script>
 </head>
 
 <body>
-<h1>Find waldo</h1>
+
+<div id="startScreen">
+	<h1>Wheres Waldo?</h1>
+	<p>
+		Click the button to start searching.<br>
+		By the way, you are timed.
+	</p>
+	<div id="go">
+		<p id="goText">START</p>
+	</div>
+</div>
 
 <div id="gameData">
-	<div id="timer">
+	<p id="rspnse"></p>
+	<div>
+		<p id="timer">im going to count</p>
 		<!-- timer here, maybe as table? -->
 	</div>
 </div>
@@ -20,5 +32,11 @@
 <img src="http://www.whereswaldo.com/m/images/maps_future.jpg">
 
 <div class="highlighter"></div>
+
+<div id="endModal" style="display:none">
+	<h2>You won!</h2>
+	<a href="index.html">PLAY AGAIN?</a>
+</div>
+
 </body>
 </html>
