@@ -40,6 +40,7 @@ p{
 	width:100%;
 	height:100%;
 	background-color: red;
+	z-index: 999;
 }
 #gameData{
 	background-color: white;
@@ -55,6 +56,8 @@ p{
 	margin: initial;
 	text-decoration: underline;
 	text-align: initial;
+	margin-left: 220px;
+	letter-spacing: 8px;
 }
 #endModal{
 	background: black;
@@ -64,17 +67,19 @@ p{
     width: 200px;
     margin-left: -100px;
     text-align: center;
+    z-index: 999;
 }
 #timer{
 	position: absolute;
 	top: 7px;
-	right: 30px;
+	right: 220px;
+	letter-spacing: 4px;
 }
 .highlighter{
 	display: none;
-	border:4px solid red;
+	border:6px solid red;
 	box-shadow: 1px 2px black;
-	/*border-radius: 100%;*/
+	border-radius: 100%;
 	position:absolute;
 	width:46px;
 	height:46px;
