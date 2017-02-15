@@ -1,44 +1,43 @@
 window.addEventListener("load", function(){
-	
+
+
+
+	start = document.getElementById("go");
 	picture = document.getElementsByTagName("img")[0];
+
+	start.addEventListener("click", startGame);
 	picture.addEventListener("click", didTheyFindWaldo);
 	picture.addEventListener("click", highlight); //highlight will change and rather be done server-side
 
 
 
 	function didTheyFindWaldo(e){
-		var x = e.pageX
-		var y = e.pageY 
-		
+		x = e.pageX;
+		y = e.pageY;
 		
 		requestForWaldo = new XMLHttpRequest();
 		requestForWaldo.open('POST', 'tony_stark.php', true);
 		requestForWaldo.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
 		requestForWaldo.send("xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop));
-		requestForWaldo.addEventListener("load", function(e){
-			// IMPORTANT!!! CHANGE .INNERHTML TO INSERTADJACENTHTML() SO IT DOESNT KILL THE TIMER!!! IMPORTANT!!!
-			document.getElementById("gameData").innerHTML= "<p id='rspnse'>" + e.target.response + "</p>";
-			console.log(e.target.response);
-		});
-
-
-		//highlight(response["mousePos"]["x/y"] )
+		requestForWaldo.addEventListener("load", showResponse);
+	};
 
 
 
+	function showResponse(e){
+		document.getElementById("rspnse").innerHTML = e.target.response;
+
+		if (e.target.response.includes("√")){ //When user wins
+			endGame();
+		} 
+		else{ //When user loses
+			console.log("not found");
+		};
+	};
 
 
-		// page_ - this.offset____ = co-ordinates relative to image 
-		// page_ = actual mouse pos
-
-
-
-
-	}
 
 	function highlight(e){
-		console.log(a = e.pageX);
-		console.log(e.pageY);
 		highlighter = document.getElementsByClassName("highlighter")[0]
 		highlighter.style.display = "block"
 	
@@ -46,4 +45,38 @@ window.addEventListener("load", function(){
 		highlighter.style.left = e.pageX  + "px"
 	};
 
+
+
+	function startGame(){
+		document.getElementById("startScreen").style.display = "none";
+		//Start timer here
+		timeStart = new Date().getTime();
+		document.getElementById("timer").innerText = timeStart;
+	}
+
+	function endGame(){
+		document.getElementById("endModal").style.display = "block";
+		//End timer here
+		timeFinish = new Date().getTime();
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
+
+
+
+
+
+
