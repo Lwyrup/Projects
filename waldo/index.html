@@ -23,10 +23,7 @@
 
 <div id="gameData">
 	<p id="rspnse"></p>
-	<div>
-		<p id="timer">im going to count</p>
-		<!-- timer here, maybe as table? -->
-	</div>
+	<p id="timer">0.00</p>
 </div>
 
 <img src="http://www.whereswaldo.com/m/images/maps_future.jpg">
@@ -35,6 +32,36 @@
 
 <div id="endModal" style="display:none">
 	<h2>You won!</h2>
+	<p>It took you <span id="yourTime"></span> seconds to find waldo.</p>
+
+	<table style="border: 1px solid white">
+		<caption>Highscores</caption>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Score</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>				<!-- generate body from csv -->
+				<td>Austin</td>
+				<td>1.020</td>
+			</tr>
+			<tr>
+				<td>Nate</td>
+				<td>1.320</td>
+			</tr>
+			<tr>
+				<td>Darik</td>
+				<td>1.470</td>
+			</tr>
+			<tr>
+				<td>Kate</td>
+				<td>1.510</td>
+			</tr>
+		</tbody>
+	</table>
+
 	<a href="index.html">PLAY AGAIN?</a>
 </div>
 
