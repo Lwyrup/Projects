@@ -14,35 +14,17 @@ window.addEventListener("load", function(){
 	function didTheyFindWaldo(e){
 		x = e.pageX;
 		y = e.pageY;
-		
-		params = "xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop)+"&purpose=validate";
-		sendRequest("POST", "scripts/tony_stark.php",params, showResponse, event);
-
-
-
-
-
-		// requestForWaldo = new XMLHttpRequest();
-		// requestForWaldo.open('POST', 'scripts/tony_stark.php', true);
-		// requestForWaldo.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-		// requestForWaldo.send("xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop)+"&purpose=validate");
-		// requestForWaldo.addEventListener("load", showResponse);
+		params = "xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop);
+		sendRequest("POST", "scripts/tony_stark.php",params, showResponse);
 	};
 
 
-
-
-
-
-
-	
-	// FINISH THIS REQUEST FUNCTION ASAP SO WE CAN USE IT IN THE GETSCORES
-	function sendRequest(method, phpFile, params, afterLoad, event){
+	function sendRequest(method, phpFile, params, afterLoad){
 		request = new XMLHttpRequest();
 		request.open(method, phpFile, true);
 		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-		request.send("xpos=" + (x - event.target.offsetLeft) + "&ypos=" + (y - event.target.offsetTop)+"&purpose=validate");
-		request.addEventListener("load", showResponse);
+		request.send(params);
+		request.addEventListener("load", afterLoad);
 	};
 
 
@@ -57,7 +39,6 @@ window.addEventListener("load", function(){
 
 	function showResponse(e){
 		document.getElementById("rspnse").innerHTML = e.target.response;
-
 		if (e.target.response.includes("√")){ //When user wins
 			endGame();
 		} 
@@ -82,7 +63,6 @@ window.addEventListener("load", function(){
 
 	function startGame(){
 		document.getElementById("startScreen").style.display = "none";
-		//Start timer here
 		startTimer();
 	}
 
@@ -91,7 +71,6 @@ window.addEventListener("load", function(){
 		document.getElementById("yourTime").textContent = timeToFind;
 		//getTopPlayers(); ------------------------------------------
 		document.getElementById("endModal").style.display = "block";
-		//End timer here
 		stopTimer();
 	};
 
