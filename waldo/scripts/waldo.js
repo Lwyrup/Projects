@@ -15,12 +15,43 @@ window.addEventListener("load", function(){
 		x = e.pageX;
 		y = e.pageY;
 		
-		requestForWaldo = new XMLHttpRequest();
-		requestForWaldo.open('POST', 'scripts/tony_stark.php', true);
-		requestForWaldo.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-		requestForWaldo.send("xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop));
-		requestForWaldo.addEventListener("load", showResponse);
+		params = "xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop)+"&purpose=validate";
+		sendRequest("POST", "scripts/tony_stark.php",params, showResponse, event);
+
+
+
+
+
+		// requestForWaldo = new XMLHttpRequest();
+		// requestForWaldo.open('POST', 'scripts/tony_stark.php', true);
+		// requestForWaldo.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		// requestForWaldo.send("xpos=" + (x - e.target.offsetLeft) + "&ypos=" + (y - e.target.offsetTop)+"&purpose=validate");
+		// requestForWaldo.addEventListener("load", showResponse);
 	};
+
+
+
+
+
+
+
+	
+	// FINISH THIS REQUEST FUNCTION ASAP SO WE CAN USE IT IN THE GETSCORES
+	function sendRequest(method, phpFile, params, afterLoad, event){
+		request = new XMLHttpRequest();
+		request.open(method, phpFile, true);
+		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		request.send("xpos=" + (x - event.target.offsetLeft) + "&ypos=" + (y - event.target.offsetTop)+"&purpose=validate");
+		request.addEventListener("load", showResponse);
+	};
+
+
+
+
+
+
+
+
 
 
 
