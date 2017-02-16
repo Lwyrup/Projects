@@ -1,12 +1,19 @@
 <?php
-$file = '../locations.csv';
 
-$f = fopen($file, 'r');
-$text = fread($f, filesize($file));
-fclose($f);
+if ($_POST["purpose"] == "validate"){
 
-$locationOfWaldo = str_getcsv($text);
-echo checkCoords($locationOfWaldo);
+	$file = '../locations.csv';
+	$f = fopen($file, 'r');
+	$text = fread($f, filesize($file));
+	fclose($f);
+
+	$locationOfWaldo = str_getcsv($text);
+	echo checkCoords($locationOfWaldo);
+};
+
+if ($_POST["purpose"] == "getscores"){
+	//responds to call with JSON object? yes!?
+};
 
 function checkCoords($loW){
 	if (withinRange($loW, 'x') && withinRange($loW, 'y')){
@@ -35,6 +42,7 @@ function isItXorY($xy){
 		return 1;
 	};
 };
+
 
 // echo("\nsent with post: ".$_POST["xpos"]." ".$_POST["ypos"]);
 
