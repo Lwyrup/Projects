@@ -19,7 +19,7 @@ function checkCoords($loW){
 		return "√ WALDO FOUND!";
 	}
 	else{
-		return "Try again"; //turn into random wrongGenerator
+		return respondWrong();
 	};
 };
 
@@ -65,6 +65,22 @@ function isItXorY($xy){
 	else if ($xy == "y"){
 		return 1;
 	};
+};
+
+// Selects a random snarky comment from the array
+//
+//	Example
+//
+//		respondWrong();
+//			=> "So close"
+//
+// Returns that snarky comment as a string
+
+function respondWrong(){
+	$snarks = ["So close","Warmer...","Colder...","Are you blind?","That's not Waldo.","Show me Waldo!",
+	"Survey says...","This is not the Waldo you're looking for.","Your Waldo is in another castle.",
+	"If Waldo were a snake..."];
+	return $snarks[rand(0, 9)];
 };
 
 ?>
