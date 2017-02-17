@@ -1,79 +1,48 @@
 <?php
-//------------ADDING-TO-DATA-HERE------------ADDING-TO-DATA-HERE------------ADDING-TO-DATA-HERE---------------------
 
-if (is_numeric($_POST["score"])){
-	$newScoreRow = $_POST["name"].",".$_POST["score"]."\n";
+addNewScore();
+$responseJSON = convertCSVtoJSON();
+$responseJSON[strrpos($responseJSON, ",")] = " ";
+echo $responseJSON;
 
+// Adds a new csv row to file
+//
+// $_POST['name']  --Name of player <is_string
+// $_POST['score'] --Score, seconds to find waldo <string
 
-	file_put_contents("../data/highscores.csv", $newScoreRow, FILE_APPEND);
+function addNewScore(){
+    if (is_numeric($_POST["score"])){
+        $newScoreRow = $_POST["name"].",".$_POST["score"]."\n";
+        file_put_contents("../data/highscores.csv", $newScoreRow, FILE_APPEND);
+    };
 };
 
+// Reads CSV and converts to string of JSON
+//
+// returns concatenated string with formating of JSON 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//---------------REPSONSE-HERE-------------RESPONSE-HERE-------------RESPONSE-HERE-------------RESPONSE-HERE------------
-
-
-//Handles the string of JSON
-$response = "";
-
-//Begins looping through csv, building JSON
-if (($handle = fopen("../data/highscores.csv", "r")) !== FALSE) {
-	//Adds the staring bracket of the JSON object
-
-
-	$response = $response . "[";
-    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        $items = count($data);  
-        //For loop goes through each rows contents 
-        //Adds the start of a object 
-        $response = $response . " {";
-
-
-
-        for ($i=0; $i < $items; $i++) {
-        	//Puts quotes around each cells contents
-            
-            if($i == 0){
-            	//If its the first it is the value of the 'name' key
-            	$response = $response . '"name": "'.$data[$i].'",';
+function convertCSVtoJSON(){
+     if (($handle = fopen("../data/highscores.csv", "r")) !== FALSE) {
+        $response = "[";
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) { 
+            $response = $response . " {";
+            for ($i=0; $i < count($data); $i++) {
+                if($i == 0){
+                    $response = $response . '"name": "'.$data[$i].'",';
+                }
+                else{ 
+                    $response = $response . ' "score": "'.$data[$i].'"';
+                }
             }
-            else{ //else its value of 'score' key
-            	$response = $response . ' "score": "'.$data[$i].'"';
-            }
+            $response = $response . "},";
         }
-
-
-        //Ends the object and puts a delimiter(,) for multiple scores
-        $response = $response . "},";
-    }
-
-    //Adds the end bracket of the JSON object
-    $response = $response . "]";
-    fclose($handle);
-};
-
-
-
-
-
-
-//Removes the last comma so JSON parses correctly
-$response[strrpos($response, ",")] = " ";
-echo $response;
+        $response = $response . "]";
+        fclose($handle);
+    };
+    return $response;
+}
 
 ?>
+
 
 
