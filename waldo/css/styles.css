@@ -2,6 +2,7 @@ body{
 	background-color: red;
 	color:white;
 	margin:0px;
+	background-image: url("../media/stripes.jpg");
 }
 img{
 	display: block;
@@ -18,6 +19,16 @@ h1{
 }
 p{
 	text-align: center;
+}
+table{
+	width:inherit;
+	margin:12px auto;
+}
+thead{
+	color:royalblue;
+}
+a{
+	color:red;
 }
 #go{
 	height: 60px;
@@ -64,9 +75,12 @@ p{
 }
 #endModal{
 	background: black;
+	border:1px solid white;
+	border-radius: 20px;
     position: fixed;
-    top: 35%;
-    left: 50%;
+    padding: 10px 45px;
+    top: 25%;
+    left: 47%;
     width: 200px;
     margin-left: -100px;
     text-align: center;
