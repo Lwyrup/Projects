@@ -34,6 +34,9 @@ p{
 	padding: 20px;
 }
 #startScreen{
+	background-image: url(../media/stripes.jpg);
+	background-repeat: none;
+	background-size: 100%;
 	position: fixed;
 	top:0px;
 	margin:auto;
@@ -62,7 +65,7 @@ p{
 #endModal{
 	background: black;
     position: fixed;
-    top: 50%;
+    top: 35%;
     left: 50%;
     width: 200px;
     margin-left: -100px;
@@ -74,6 +77,15 @@ p{
 	top: 7px;
 	right: 220px;
 	letter-spacing: 4px;
+}
+#playerForm{
+	background: black;
+	border: 2px solid white;
+	border-radius: 30px;
+	position: fixed;
+    top: 281px;
+    left: 34%;
+    padding: 109px;
 }
 .highlighter{
 	display: none;
