@@ -1,10 +1,10 @@
 window.addEventListener("load", function(){
 
-
-
+	submit = document.getElementById("playerForm").children[2];
 	start = document.getElementById("go");
 	picture = document.getElementsByTagName("img")[0];
 
+	submit.addEventListener("click", setPlayersName);
 	start.addEventListener("click", startGame);
 	picture.addEventListener("click", didTheyFindWaldo);
 	picture.addEventListener("click", highlight); //highlight will change and rather be done server-side
@@ -69,19 +69,11 @@ window.addEventListener("load", function(){
 	function endGame(){
 		timeToFind = document.getElementById("timer").textContent;
 		document.getElementById("yourTime").textContent = timeToFind;
-		//getTopPlayers(); ------------------------------------------
+		//NOTE IN THE BELLOW REQUEST, USE PARAMS TO SEND timeToFind OVER TO CSV
+		params = "name=" + name + "&score=" + timeToFind;
+		sendRequest("POST","scripts/leaderboard.php",params,generateScoreboard);
 		document.getElementById("endModal").style.display = "block";
 		stopTimer();
-	};
-
-	function getTopPlayers(){
-		//Send request to server for top player scores
-		//Data sent back as json?? 
-		//scores = [ 
-		// {player => "Austin", score => "1.020"},
-		// {player => "Nate", score => "1.320"}
-		//  ];
-		//Use response to generate <tbody> in html
 	};
 
 
@@ -98,6 +90,44 @@ window.addEventListener("load", function(){
 		newTime = parseFloat(document.getElementById("timer").textContent) + 0.01;
 		document.getElementById("timer").textContent = newTime.toFixed(3);
 	};
+
+
+
+	function generateScoreboard(e){
+		allScores = parseJ(e.target.response);
+		sortByHighest(allScores);
+		fillHTML(allScores);
+	};
+
+	function parseJ(stringJSON){
+		return JSON.parse(stringJSON);		
+	};
+
+	function sortByHighest(scoreJSON){
+		scoreJSON.sort(function(a,b){ return a["score"] - b["score"] });
+	};
+
+	function fillHTML(data){
+		stringHTML = '';
+		for (i = 0; i < data.length && i < 4; i++){
+			
+			stringHTML += "<tr><td>" + data[i]["name"] + "</td>" + "<td>" + data[i]["score"] + "</td></tr>";
+		};
+		document.getElementById("topPlayers").innerHTML = stringHTML;
+	}
+
+	function setPlayersName(e){
+		input = e.target.parentElement.children[1].value;
+		
+		if (input.match(/[a-z]/gi)){
+			name = input.replace(/[^a-z]/gi, "");
+			e.target.parentElement.style.display="none";
+		}
+		else{
+			alert("Enter a valid name");
+		};
+	};
+
 
 
 
