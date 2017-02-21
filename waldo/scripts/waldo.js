@@ -172,7 +172,6 @@ window.addEventListener("load", function(){
 	function fillHTML(data){
 		stringHTML = '';
 		for (i = 0; i < data.length && i < 10; i++){
-			
 			stringHTML += "<tr><td>" + data[i]["name"] + "</td><td>" + data[i]["score"] + "</td></tr>";
 		};
 		document.getElementById("topPlayers").innerHTML = stringHTML;

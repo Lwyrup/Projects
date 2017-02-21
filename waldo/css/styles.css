@@ -97,9 +97,9 @@ a{
 	border: 2px solid white;
 	border-radius: 30px;
 	position: fixed;
-    top: 281px;
-    left: 34%;
-    padding: 109px;
+	top: 281px;
+	left: 34%;
+	padding: 109px;
 }
 .highlighter{
 	display: none;
