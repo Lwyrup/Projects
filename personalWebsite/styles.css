@@ -1,0 +1,73 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+header h1{
+    font-family: 'Bahiana', cursive;
+    font-size: 35px;
+    letter-spacing: 6px;
+    margin: 0px;
+   
+}
+header h2{
+	color: #949494;
+	font-size: 14px;
+	letter-spacing: 3px;
+	margin: 0px;
+}
+header{
+	padding: 20px;
+	background-color: #404040;
+	color: white;
+}
+.header{
+	background-color: lightgray;
+	margin: -8px -8px 0px -8px;
+	padding-top: 1px;
+}
+.header_links{
+	background-color: #e0e0e0;
+	display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 23px 4px;
+}
+
+.header_links > div a{
+	color: #5f5f5f;
+	padding: 0px 10px;
+	text-decoration: none;
+}
+.sub_text{
+	color:gray;
+}
+.article_preview{
+	border-top: 1px solid lightgray;
+	color:gray;
+}
+.article_preview h3{
+	color:black;
+}
+.fa-rss, .fa-twitter{
+    background-color: #5f5f5f;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 2px;
+    border-radius: 100%;
+    color: #e0e0e0;
+}
+.fa-github{
+	font-size: 24px;
+}
+.article_body{
+	border-top: 1px solid lightgray;
+};
+
+
+
