@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{D65543FE-D06C-4D93-AFD3-74DCF62AC889}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="aspdotnetApp/Models/Movie.cs">
+    <Files>
+      <File FileName="aspdotnetApp/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="aspdotnetApp/App_Start/RouteConfig.cs" Line="1" Column="1" />
+      <File FileName="aspdotnetApp/Models/Movie.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.aspdotnetApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

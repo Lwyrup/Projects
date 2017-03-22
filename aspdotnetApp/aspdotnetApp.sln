@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspdotnetApp", "aspdotnetApp\aspdotnetApp.csproj", "{D65543FE-D06C-4D93-AFD3-74DCF62AC889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspdotnetApp.Tests", "aspdotnetApp.Tests\aspdotnetApp.Tests.csproj", "{6CEF2452-85CF-41D2-88DA-B8B34439BBF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D65543FE-D06C-4D93-AFD3-74DCF62AC889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65543FE-D06C-4D93-AFD3-74DCF62AC889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65543FE-D06C-4D93-AFD3-74DCF62AC889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65543FE-D06C-4D93-AFD3-74DCF62AC889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CEF2452-85CF-41D2-88DA-B8B34439BBF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CEF2452-85CF-41D2-88DA-B8B34439BBF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CEF2452-85CF-41D2-88DA-B8B34439BBF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CEF2452-85CF-41D2-88DA-B8B34439BBF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
