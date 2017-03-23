@@ -16,6 +16,19 @@ namespace aspdotnetApp.Controllers
 
 			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
 			ViewData["Runtime"] = isMono ? "Mono" : ".NET";
+			ViewData["title"] = "Home";
+
+			return View();
+		}
+
+		public ActionResult Help()
+		{
+			var mvcName = typeof(Controller).Assembly.GetName();
+			var isMono = Type.GetType("Mono.Runtime") != null;
+
+			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
+			ViewData["Runtime"] = isMono ? "Mono" : ".NET";
+			ViewData["title"] = "Help";
 
 			return View();
 		}

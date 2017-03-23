@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="~/Views/Shared/styles.css">
 </head>
 <body>
+	<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
 	@RenderBody()
 </body>
 </html>
